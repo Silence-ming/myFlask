@@ -3,6 +3,7 @@ import socket
 import re
 import os.path
 from urllib.parse import urlparse  #解析地址，将地址信息按类分开
+from tm import render_template
 
 class light():
     def __init__(self):
@@ -139,7 +140,7 @@ def template(url,data):
 app=light()
 @app.route('/aaa/:id2',methods=['POST','GET'])
 def aa(req,res):
-    return '明明'
+    return render_template('templates/1.html',{"name":"zhangsan","age":"15",'arr':[1,2,3,4,5]})
 
 @app.route('/bbb/:id/:id1',methods=['POST','GET'])
 def bb(req,res):
